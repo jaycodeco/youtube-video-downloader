@@ -3,13 +3,14 @@ from tkinter import ttk
 from functions import *
 
 
-
+def save_file():
+    choose_file()
 
 def save_directory():
     choose_path(pathLbl)
     
 def download_file():
-    dwnVid(qlyBox,urlEty,logLbl)
+    go(qlyBox.get(),urlEty.get(),logLbl)
 
 root =Tk()
 root.title("U-Down")
@@ -50,6 +51,9 @@ qlyBox.grid(column=1,row=4)
 ####_Download and errorStatus_####
 dwnBtn = Button(root,text="download",font=("jost",15, 'bold', 'underline'),fg="green", command=download_file)
 dwnBtn.grid(column=1,row=5)
+
+fileBtn = Button(root,text="urls in file",font=("jost",10, 'bold'),fg="blue", command=save_file)
+fileBtn.grid(column=1,row=0)
 
 logLbl = Label(root,text="",font=("jost",15),fg="red")
 logLbl.grid()
